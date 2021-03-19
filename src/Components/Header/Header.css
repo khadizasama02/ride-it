@@ -1,0 +1,21 @@
+.nav{
+    margin-left: 500px;
+}
+.nav li{
+    
+    display: inline;
+    margin-left: 50px;
+    
+  }
+  
+  .nav a{
+    text-decoration: none;
+    color: rgba(51, 7, 7, 0.877);
+    font-weight: bold;
+  }
+  .title-container
+  {
+      height: 50px;
+     
+  }
+ 

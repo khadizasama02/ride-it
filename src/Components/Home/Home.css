@@ -1,0 +1,10 @@
+.background
+{
+  background-image: url("../../images/seo.png");
+  background-repeat: no-repeat;
+  /* width: 100%; */
+  height: 600px;
+   background-size: cover;
+   background-position: fixed;
+}
+
