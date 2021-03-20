@@ -9,4 +9,18 @@
 .forget-password
 {
     margin-left: 300px;
+    color: #F97F51;
+}
+.btn-style
+{
+    width: 100%;
+    margin-top: 10px;
+    background: #D6A2E8;
+    color: black;
+}
+.btn-google-style{
+    width: 20%;
+    background: #D6A2E8;
+    color: black;
+    margin-top: 10px;
 }

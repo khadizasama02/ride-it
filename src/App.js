@@ -14,8 +14,16 @@ import Contact from './Components/Contact/Contact';
 import Blog from './Components/Blog/Blog';
 import Login from './Components/Login/Login';
 import NotFound from './NotFound/NotFound';
+import { createContext, useState } from 'react';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+
+
+export const UserContext = createContext();
 function App() {
+  const [loggedInUser,setLoggedInUser] = useState({});
   return (
+    <UserContext.Provider value ={[loggedInUser,setLoggedInUser]}>
+      <p>name:{loggedInUser.displayName}</p>
     <Router className="container">
       <Header/>
       <Switch>
@@ -23,9 +31,9 @@ function App() {
         <Route path="/home">
           <Home/>
         </Route>
-        <Route path="/destination">
+        <PrivateRoute path="/destination/:id">
           <Destination/>
-        </Route>
+        </PrivateRoute>
         <Route path="/contact">
           <Contact/>
         </Route>
@@ -45,7 +53,7 @@ function App() {
         
       </Switch>
     </Router>
-   
+  </UserContext.Provider>
   );
 }
 
