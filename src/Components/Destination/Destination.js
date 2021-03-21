@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import transportData from '../../FakeData/fakeData.json'
+import placeData from '../../placeData/placeData';
 import PlaceInformation from '../PlaceInformation/PlaceInformation';
+
+import Map from '../Map/Map';
 
 const Destination = () => {
 
     const { id } = useParams();
+    
+//    const [passengerInfo,setPassengerInfo] = useState(placeData);
+console.log(id);
+
+    const passengerInfo = placeData.filter(passenger =>passenger.id == id)
+    console.log(passengerInfo);
     const [place,setPlace] = useState({
         MyLocation : "",
         MyDestination : "",
@@ -56,11 +64,11 @@ const Destination = () => {
     //  setPlace(placeInfo);
     // },[])
     return (
-        <div>
-          
+        <div class="row">
+          <div class="col-md-8">
 
-            <div class="card" style={{width:"20%",marginLeft:"100px",marginTop:"100px",background:""}} >
-                <div class="card-body" style={{background:"#575fcf"}}> 
+            <div class="card " style={{width:"35%",marginLeft:"20px",marginTop:"100px"}} >
+                <div class="card-body " style={{background:"#575fcf"}}> 
                 {placeInfo ?   <div>
                    
                     <form onSubmit={onSubmits}>
@@ -81,16 +89,20 @@ const Destination = () => {
                         <p style={{border:"1px solid black",borderRadius:"10px",padding:'10px',background:"#D6A2E8"}}>{place.MyLocation}</p>
                         <h3 style={{border:"1px solid black",borderRadius:"10px",padding:'10px',background:"#D6A2E8"}}>Final Destination</h3>
                         <p style={{border:"1px solid black",borderRadius:"10px",padding:'10px',background:"#D6A2E8"}}>{place.MyDestination}</p>
+                        <PlaceInformation passengerInfo={passengerInfo}></PlaceInformation>
                         
                     </div>
 
                 }
                     
-                           
                        
                 </div>
                  
                 </div>
+                </div>     
+                <div class="col-md-4 d-flex align-items-start flex-column bd-highlight mb-3" style={{marginLeft:"auto",marginTop:"100px"}}>
+                     <Map></Map>
+                     </div>    
                 </div>
     );
 };

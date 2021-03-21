@@ -151,7 +151,7 @@ const Login = () => {
             <h3>password:{user.password}</h3>
             <h3>name:{user.name}</h3> */}
 
-            <div class="card login">
+            <div class="card login ">
                 <div class="card-body" style={{background:"#575fcf"}}>
                     <div class="form-check" style={{ textAlign: "center", }}>
                         <input type="checkbox" class="form-check-input" id="" onChange={() => setNewUser(!newUser)} name="newUser" />
