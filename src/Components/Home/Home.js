@@ -12,7 +12,7 @@ const Home = () => {
         // console.log(transportData)
     }, [])
     return (
-        <div className="container background">
+        <div className="container background ">
            
             
             <div className="row">

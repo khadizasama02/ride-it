@@ -91,12 +91,14 @@ const Login = () => {
                 //     // ...
                 // })
                 .then(res => {
-                    const newUserInfo = { ...user };
+                    const newUserInfo = { ...res.user };
                     newUserInfo.error = '';
                     newUserInfo.success = true;
                     // console.log(res);
                    
                     setUser(newUserInfo);
+                    setLoggedInUser(newUserInfo);
+                    history.replace(from);
                     
                     // console.log('sign in user info',res.user);
                 })
@@ -143,14 +145,14 @@ const Login = () => {
         }
     }
     return (
-        <div >
+        <div class="app" >
             {/* <h1>this is login</h1>
             <h2>email: {user.email}</h2>
             <h3>password:{user.password}</h3>
             <h3>name:{user.name}</h3> */}
 
             <div class="card login">
-                <div class="card-body">
+                <div class="card-body" style={{background:"#575fcf"}}>
                     <div class="form-check" style={{ textAlign: "center", }}>
                         <input type="checkbox" class="form-check-input" id="" onChange={() => setNewUser(!newUser)} name="newUser" />
                         <label class="form-check-label" for="newUser">I am a new user.Sign me up</label>

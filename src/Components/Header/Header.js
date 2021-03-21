@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './Header.css'
 
 const Header = () => {
+    const [loggedInUser,setLoggedInUser]= useContext(UserContext);
     return (
-        <div className="container">
+        <div className="container app font-italic">
             <nav  >
                 <div className="title-container">
-                    <h1>
+                    <h2 style={{paddingTop:"10px"}}>
                         RIDE IT
-                    </h1>
+                    </h2>
 
                 </div>
-                <ul className="nav">
+                <ul className="nav " style={{fontSize:"17PX"}}>
 
 
 
@@ -30,7 +32,7 @@ const Header = () => {
                     </li>
 
                     <li>
-                        <Link to="/login" className="btn-login">Login</Link>
+                        <Link to="/login" className="btn-login">{(loggedInUser.email)?(loggedInUser.displayName):'Login'}</Link>
                     </li>
 
                 </ul>
